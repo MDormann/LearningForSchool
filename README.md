@@ -17,6 +17,7 @@ normale App installieren lässt und danach auch offline funktioniert.
 | Zahlen | Ballblitz | Wovon sind es mehr? Mengen schätzen statt zählen |
 | Buchstaben & Wörter | Anlaute | Bild → Anfangsbuchstabe oder Buchstabe → Bild |
 | Buchstaben & Wörter | Silben klatschen | Wie viele Silben hat das Wort? |
+| Buchstaben & Wörter | Wo ist was? | Lagewörter: auf, unter, neben, hinter, vor, in (Bild oder Wort finden) |
 | Knobeln | Muster legen | Formen-/Farbmuster fortsetzen |
 | Knobeln | Memory | Paare finden (Tiere, Essen, Sachen) |
 

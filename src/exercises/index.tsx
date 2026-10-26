@@ -1,6 +1,7 @@
 import type { ComponentType, ReactNode } from 'react';
 import { Anlaute } from './Anlaute';
 import { Ballblitz } from './Ballblitz';
+import { Lagewoerter } from './Lagewoerter';
 import { Memory } from './Memory';
 import { Muster } from './Muster';
 import { Nachbarzahlen } from './Nachbarzahlen';
@@ -23,7 +24,7 @@ export type Exercise = {
 
 export const CATEGORIES: { id: Category; title: string; blurb: string }[] = [
   { id: 'zahlen', title: 'Zahlen', blurb: 'Zählen, Mengen sehen, Zahlen ordnen' },
-  { id: 'sprache', title: 'Buchstaben & Wörter', blurb: 'Anlaute hören, Silben klatschen' },
+  { id: 'sprache', title: 'Buchstaben & Wörter', blurb: 'Anlaute hören, Silben klatschen, Lagewörter' },
   { id: 'knobeln', title: 'Knobeln', blurb: 'Muster erkennen, Paare merken' },
 ];
 
@@ -145,6 +146,19 @@ export const EXERCISES: Exercise[] = [
       </span>
     ),
     component: Silben,
+  },
+  {
+    id: 'lagewoerter',
+    title: 'Wo ist was?',
+    description: 'Auf, unter, neben, hinter, vor oder in? Lagewörter verstehen.',
+    category: 'sprache',
+    preview: (
+      <span className="mini">
+        <span className="mini-emoji">⚽</span>
+        <b>unter</b>
+      </span>
+    ),
+    component: Lagewoerter,
   },
   {
     id: 'muster',
