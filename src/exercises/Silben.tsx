@@ -23,7 +23,7 @@ export function Silben() {
   const text = `Wie oft klatschst du bei ${w.word}?`;
 
   useEffect(() => {
-    if (!solved) say(text);
+    if (!solved) say(text, 'queue');
   }, [text, solved]);
 
   function clap() {
@@ -33,7 +33,7 @@ export function Silben() {
   }
 
   function speakSlow() {
-    parts.forEach((p, i) => say(p, i > 0));
+    parts.forEach((p, i) => say(p, i > 0 ? 'queue' : 'interrupt'));
   }
 
   function answer(k: number) {

@@ -43,7 +43,7 @@ export function Anlaute() {
   const text = mode === 'letter' ? `Womit fängt ${t.word} an?` : `Welches Bild fängt mit ${initial(t)} an?`;
 
   useEffect(() => {
-    if (!solved) say(text);
+    if (!solved) say(text, 'queue');
   }, [text, solved]);
 
   function changeMode(m: Mode) {

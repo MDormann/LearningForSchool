@@ -167,7 +167,7 @@ export function Lagewoerter() {
   const text = prefs.mode === 'bild' ? `Zeig mir: ${sentence(t)}` : where(t.thing);
 
   useEffect(() => {
-    if (!solved) say(text);
+    if (!solved) say(text, 'queue');
   }, [text, solved]);
 
   function change(p: Prefs) {

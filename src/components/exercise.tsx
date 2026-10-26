@@ -76,7 +76,7 @@ export function Finish({ message, stars, maxStars = 3 }: { message: string; star
   const title = shown >= 3 ? 'Super gemacht!' : shown === 2 ? 'Toll gemacht!' : 'Geschafft!';
   useEffect(() => {
     sfx.win();
-    say(`${title} ${message}`);
+    say(`${title} ${message}`, 'queue');
   }, [title, message]);
   return (
     <div className="finish card">

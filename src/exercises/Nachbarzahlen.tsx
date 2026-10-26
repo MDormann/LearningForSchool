@@ -40,7 +40,7 @@ export function Nachbarzahlen() {
   const ans = q.n + q.dir;
   const text = questionText(q);
 
-  useEffect(() => say(text), [text]);
+  useEffect(() => say(text, 'queue'), [text]);
 
   function changePrefs(p: Prefs) {
     setPrefs(p);

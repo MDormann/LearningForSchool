@@ -1,3 +1,5 @@
+import { noteSoundEffect } from './speech';
+
 let enabled = true;
 let ctx: AudioContext | null = null;
 
@@ -20,6 +22,7 @@ function audio(): AudioContext | null {
 function tone(freq: number, delay: number, dur: number, type: OscillatorType = 'sine', vol = 0.15) {
   const a = audio();
   if (!a) return;
+  noteSoundEffect();
   const o = a.createOscillator();
   const g = a.createGain();
   o.type = type;
