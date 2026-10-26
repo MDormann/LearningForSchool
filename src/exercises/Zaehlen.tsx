@@ -52,7 +52,7 @@ export function Zaehlen({ from, to }: Props) {
           later(() => {
             setLaunched(true);
             sfx.go();
-            say('Start!', true);
+            say('Start!', 'queue');
           }, 500);
           later(() => setDone(true), 2400);
         } else {
