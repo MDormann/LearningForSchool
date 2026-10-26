@@ -10,6 +10,7 @@ normale App installieren lässt und danach auch offline funktioniert.
 | Bereich | Übung | Worum geht's |
 | --- | --- | --- |
 | Zahlen | Zählen bis 20 | Zahlen der Reihe nach antippen (geordnet oder gemischt) |
+| Zahlen | Mengen zählen | Gegenstände zählen (bis 5, 10 oder 20; in Reihen oder durcheinander), zum Mitzählen antippen |
 | Zahlen | Countdown | Rückwärts von 10 bis 1 – dann startet die Rakete |
 | Zahlen | Würfelblick | Punktbilder kurz sehen und die Anzahl ohne Zählen erkennen |
 | Zahlen | Zehnerfeld-Blitz | Ausgemalte Kästchen im Zehnerfeld auf Zeit erkennen, mit Bestzeit |
