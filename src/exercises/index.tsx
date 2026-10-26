@@ -3,6 +3,7 @@ import { Anlaute } from './Anlaute';
 import { Ballblitz } from './Ballblitz';
 import { Lagewoerter } from './Lagewoerter';
 import { Memory } from './Memory';
+import { Mengen } from './Mengen';
 import { Muster } from './Muster';
 import { Nachbarzahlen } from './Nachbarzahlen';
 import { Silben } from './Silben';
@@ -54,6 +55,19 @@ export const EXERCISES: Exercise[] = [
     category: 'zahlen',
     preview: <Chips items={[1, '…', 20]} />,
     component: () => <Zaehlen from={1} to={20} />,
+  },
+  {
+    id: 'mengen',
+    title: 'Mengen zählen',
+    description: 'Wie viele Bälle sind es? Zählen und die richtige Zahl antippen.',
+    category: 'zahlen',
+    preview: (
+      <span className="mini">
+        <span className="mini-emoji">⚽⚽⚽</span>
+        <b className="r">3</b>
+      </span>
+    ),
+    component: Mengen,
   },
   {
     id: 'countdown',
