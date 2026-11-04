@@ -5,8 +5,8 @@ import { sfx } from '../lib/sound';
 import { say, stopSpeaking } from '../lib/speech';
 import { BackIcon, SpeakerIcon, StarIcon } from './icons';
 
-type ExerciseCtx = { id: string; title: string; restart: () => void };
-export const ExerciseContext = createContext<ExerciseCtx>({ id: '', title: '', restart: () => {} });
+type ExerciseCtx = { id: string; title: string; area: string; restart: () => void };
+export const ExerciseContext = createContext<ExerciseCtx>({ id: '', title: '', area: '', restart: () => {} });
 
 /** Stars earned in the current exercise. */
 export function useEarn() {
@@ -27,13 +27,13 @@ export function Progress({ total, results }: { total: number; results: boolean[]
 
 /** Frame around every exercise: back button, title, progress dots, star counter. */
 export function Shell({ children, progress }: { children: ReactNode; progress?: ReactNode }) {
-  const { title, id } = useContext(ExerciseContext);
+  const { title, id, area } = useContext(ExerciseContext);
   const { stars } = useApp();
   useEffect(() => () => stopSpeaking(), []);
   return (
     <div className="screen">
       <header className="ex-bar">
-        <button className="icon-btn" type="button" aria-label="Zur Übersicht" onClick={() => goTo(null)}>
+        <button className="icon-btn" type="button" aria-label="Zur Übersicht" onClick={() => goTo(area)}>
           <BackIcon />
         </button>
         <h1 className="ex-title">{title}</h1>
@@ -64,7 +64,7 @@ export function Settings({ children }: { children: ReactNode }) {
 
 /** End screen with stars, praise and "again" / "other exercise" buttons. Credits the earned stars once. */
 export function Finish({ message, stars, maxStars = 3 }: { message: string; stars: number; maxStars?: number }) {
-  const { restart } = useContext(ExerciseContext);
+  const { restart, area } = useContext(ExerciseContext);
   const earn = useEarn();
   const credited = useRef(false);
   useEffect(() => {
@@ -92,7 +92,7 @@ export function Finish({ message, stars, maxStars = 3 }: { message: string; star
         <button className="btn-big" type="button" onClick={restart}>
           Nochmal!
         </button>
-        <button className="btn-soft" type="button" onClick={() => goTo(null)}>
+        <button className="btn-soft" type="button" onClick={() => goTo(area)}>
           Andere Übung
         </button>
       </div>

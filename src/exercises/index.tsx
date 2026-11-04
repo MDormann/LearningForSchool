@@ -10,8 +10,10 @@ import { Silben } from './Silben';
 import { Wuerfelblick } from './Wuerfelblick';
 import { Zaehlen } from './Zaehlen';
 import { Zehnerfeld } from './Zehnerfeld';
+import { Bis100, Einmaleins, Ergaenzen, Rechenolympiade } from './klasse2/Rechnen';
 
-export type Category = 'zahlen' | 'sprache' | 'knobeln';
+export type Area = 'vorschule' | 'klasse2';
+export type Category = 'zahlen' | 'sprache' | 'knobeln' | 'plusminus' | 'mal';
 
 export type Exercise = {
   id: string;
@@ -23,11 +25,21 @@ export type Exercise = {
   component: ComponentType;
 };
 
-export const CATEGORIES: { id: Category; title: string; blurb: string }[] = [
-  { id: 'zahlen', title: 'Zahlen', blurb: 'Zählen, Mengen sehen, Zahlen ordnen' },
-  { id: 'sprache', title: 'Buchstaben & Wörter', blurb: 'Anlaute hören, Silben klatschen, Lagewörter' },
-  { id: 'knobeln', title: 'Knobeln', blurb: 'Muster erkennen, Paare merken' },
+export const AREAS: { id: Area; title: string; emoji: string; lead: string }[] = [
+  { id: 'vorschule', title: 'Vorschule', emoji: '🧸', lead: 'Such dir eine Übung aus! Die Aufgaben werden vorgelesen – du tippst die Antwort.' },
+  { id: 'klasse2', title: '2. Klasse', emoji: '✏️', lead: 'Rechnen wie in der Schule: Tippe das Ergebnis ins Zahlenfeld. Bei Fehlern gibt es eine Rechenhilfe.' },
 ];
+
+export const CATEGORIES: { id: Category; area: Area; title: string; blurb: string }[] = [
+  { id: 'zahlen', area: 'vorschule', title: 'Zahlen', blurb: 'Zählen, Mengen sehen, Zahlen ordnen' },
+  { id: 'sprache', area: 'vorschule', title: 'Buchstaben & Wörter', blurb: 'Anlaute hören, Silben klatschen, Lagewörter' },
+  { id: 'knobeln', area: 'vorschule', title: 'Knobeln', blurb: 'Muster erkennen, Paare merken' },
+  { id: 'plusminus', area: 'klasse2', title: 'Plus & Minus', blurb: 'Rechenolympiade, Ergänzen, Rechnen bis 100' },
+  { id: 'mal', area: 'klasse2', title: 'Mal & Geteilt', blurb: 'Das kleine Einmaleins' },
+];
+
+export const areaOf = (e: Exercise): Area => CATEGORIES.find((c) => c.id === e.category)!.area;
+export const isArea = (route: string | null): route is Area => AREAS.some((a) => a.id === route);
 
 const Chips = ({ items }: { items: (string | number)[] }) => (
   <span className="mini">
@@ -203,6 +215,56 @@ export const EXERCISES: Exercise[] = [
       </span>
     ),
     component: Memory,
+  },
+  {
+    id: 'olympiade',
+    title: 'Rechenolympiade',
+    description: 'Plus und Minus bis 20 mit Zehnerübergang – auf Zeit, mit Bestzeit.',
+    category: 'plusminus',
+    preview: (
+      <span className="mini">
+        <b className="op">6+7</b>
+        <span className="mini-emoji">⏱️</span>
+      </span>
+    ),
+    component: Rechenolympiade,
+  },
+  {
+    id: 'ergaenzen',
+    title: 'Ergänzen',
+    description: 'Welche Zahl fehlt? 8 + ? = 13',
+    category: 'plusminus',
+    preview: (
+      <span className="mini">
+        <b className="op">8+?</b>
+        <b>13</b>
+      </span>
+    ),
+    component: Ergaenzen,
+  },
+  {
+    id: 'bis100',
+    title: 'Rechnen bis 100',
+    description: 'Zehner, Einer, Übergang und zweistellige Zahlen – Schritt für Schritt.',
+    category: 'plusminus',
+    preview: (
+      <span className="mini">
+        <b className="op">47+8</b>
+      </span>
+    ),
+    component: Bis100,
+  },
+  {
+    id: 'einmaleins',
+    title: 'Einmaleins',
+    description: 'Mal- und Geteiltaufgaben, Reihen frei wählbar.',
+    category: 'mal',
+    preview: (
+      <span className="mini">
+        <b className="op">7·8</b>
+      </span>
+    ),
+    component: Einmaleins,
   },
 ];
 
