@@ -87,6 +87,8 @@ h1, h2, p { margin: 0; }
 .cat-zahlen { --cat: var(--cat-zahlen); }
 .cat-sprache { --cat: var(--cat-sprache); }
 .cat-knobeln { --cat: var(--cat-knobeln); }
+.cat-plusminus { --cat: var(--blue); }
+.cat-mal { --cat: var(--purple); }
 
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
 .ex-card {
@@ -438,3 +440,53 @@ h1, h2, p { margin: 0; }
   font-weight: 700; font-size: clamp(0.95rem, 4.5vw, 1.25rem); color: #fff; background: var(--blue);
   border: 2px solid var(--ink); border-radius: 50%;
 }
+
+/* ---------- Bereiche (Vorschule / 2. Klasse) ---------- */
+.area-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.area-tab {
+  display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 12px;
+  font-family: var(--display); font-weight: 800; font-size: clamp(1.15rem, 5vw, 1.45rem); line-height: 1.1;
+  background: var(--card); color: var(--muted); border: 3px solid var(--line); border-radius: 18px;
+}
+.area-tab[aria-pressed='true'] { color: var(--ink); border-color: var(--ink); background: var(--sun); box-shadow: 0 5px 0 var(--ink); }
+.area-emoji { font-family: var(--emoji); font-size: 1.5em; line-height: 1; }
+.mini b.op { min-width: auto; padding: 0 8px; font-variant-numeric: tabular-nums; }
+
+/* ---------- Rechnen (2. Klasse) ---------- */
+.equation {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: clamp(6px, 2vw, 12px);
+  width: 100%; max-width: 520px; padding: 18px 12px; position: relative;
+  background: var(--card); border: 3px solid var(--ink); border-radius: 20px; box-shadow: 0 6px 0 rgb(29 42 68 / 0.16);
+  font-weight: 700; font-size: clamp(2.2rem, 11vw, 3.4rem); line-height: 1; font-variant-numeric: tabular-nums;
+}
+.eq-op { color: var(--muted); }
+.eq-gap {
+  min-width: 2.1ch; padding: 6px 8px; text-align: center; border: 3px dashed var(--blue); border-radius: 12px; background: #eef4ff;
+}
+.eq-gap.ok { border-style: solid; border-color: var(--good); background: var(--good-soft); }
+.eq-gap.reveal { border-style: solid; border-color: var(--sun); background: #fff3cf; }
+.eq-speak { position: absolute; top: -14px; right: -10px; width: 40px; height: 40px; }
+.help-box { min-height: 3.2em; max-width: 520px; width: 100%; text-align: center; font-size: 1.05rem; }
+.help-box p { margin: 2px 0; }
+.help-box:not(:empty) { background: #fff8e1; border: 2px solid var(--sun); border-radius: 14px; padding: 8px 12px; }
+.numpad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; width: 100%; max-width: 360px; }
+.key {
+  min-height: clamp(56px, 13vw, 68px); border-radius: 16px; border: 3px solid var(--ink); background: var(--card); box-shadow: 0 5px 0 var(--ink);
+  font-weight: 700; font-size: clamp(1.6rem, 7vw, 2rem); transition: transform 0.06s, box-shadow 0.06s;
+}
+.key:active { transform: translateY(4px); box-shadow: 0 1px 0 var(--ink); }
+.key.ok { background: var(--good); color: #fff; }
+.key.del { background: var(--tile); }
+.olympia-start { width: 100%; max-width: 480px; padding: 20px 18px; display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; font-size: 1.1rem; }
+.practice-badge { font-weight: 700; background: var(--sun); border: 2px solid var(--ink); border-radius: 999px; padding: 4px 14px; }
+.missed { width: 100%; max-width: 480px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; }
+.missed h2 { font-family: var(--display); font-weight: 800; font-size: 1.25rem; }
+.missed ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.missed li { font-weight: 700; font-variant-numeric: tabular-nums; background: var(--tile); border: 2px solid var(--line); border-radius: 10px; padding: 2px 10px; }
+.rows-pick { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; }
+.rows-pick span { font-weight: 700; color: var(--muted); font-size: 0.92rem; }
+.rows-pick button {
+  min-width: 38px; height: 38px; border-radius: 10px; border: 2px solid var(--ink); background: var(--card);
+  font-weight: 700; color: var(--muted);
+}
+.rows-pick button[aria-pressed='true'] { background: var(--purple); color: #fff; }
